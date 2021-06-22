@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=5"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+  <title>Haikyuu</title>
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .wrapper {
+      height: 100vh;
+      width: 100vw;
+      padding-top: 6%;
+      background: #ff7b00;
+    }
+
+    .box {
+      height: 500px;
+      margin: auto;
+      width: 70%;
+      background: #000000;
+    }
+
+    .infobox {
+      height: 500px;
+      padding:0;
+      color: white;
+      position: relative;
+      background: #181723;
+      clip-path: polygon(0 0, 100% 0%, 57% 100%, 0% 100%);
+    }
+
+    .me-auto {
+      margin-left: auto;
+    }
+
+    .imgbox {
+      /*background: url(asahi.jpg);*/
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .info {
+      margin-top: 40px;
+      margin-left: 30px;
+      width: 60%;
+    }
+
+    .next {
+      float: right;
+      margin-top: 10px;
+      margin-right: 80px;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+
+    .prev {
+      margin-top: 10px;
+      float: left;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+
+    .next:hover,.prev:hover {
+      color: #ff7b00;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="box container-fluid">
+      <div class="row">
+        <div class="col-md-8 infobox">
+          
+
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html" style="color: white; font-size: 1.5em; font-weight: 600;">Haikyuu</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html" style="color: white;">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="teams.html" style="color: white;">Teams</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="characters.html" style="color: white;">Characters</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="roadmap.html" style="color: white;">Roadmap</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <div class="info">
+            <h1 class="name"></h1>
+            <br>
+            <p>Team : Karasuno High</p>
+            <p>Postion : <span class="pos"></span></p>
+            <p>Number : <span class="no"></span></p>
+            <p>Height : <span class="height"></span></p>
+            <p class="para"></p>
+            <a class="prev">Prev</a>
+            <a class="next">Next</a>
+          </div>
+        </div>
+        <div class="col-md-4 imgbox"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    var det=[{name:"Asahi Azumane",number:"3",Postion : "Wing Spiker",Height : "184.7cm",para: "In contrast to his appearance, he is rather quiet and gentle and acknowledges his position as Karasuno's ace (even though he is still mocked sometimes by Daichi for not having any 'ace-like presence').",img : "asahi.jpg"},{name:"Daichi Sawamura(c)",number:"1",Postion : "Wing Spiker",Height : "176.8cm",para: "The captain of the Karasuno High volleyball club, Daichi is a very caring and concerned captain who makes sure that everyone is doing okay and always puts the team first.",img : "daichi.jpg"},{name:"Koushi Sugawara",number:"2",Postion : "Setter",Height : "174.3cm",para: "Being the vice captain, he has a soothing personality for his teammates and acts as a pillar of support for them.",img : "sugawara.jpg"},{name:"Tobio Kageyama",number:"9",Postion : "Setter",Height : "181.9cm",para: "Kageyama is also know as 'King of the Court', a nickname that insinuates his autocratic nature. Kageyama is regarded as a prodigy.",img : "kageyama.jpg"},{name:"Shoyo Hinata",number:"10",Postion : "Middle Blocker",Height : "162.8cm",para: "Hinata has an unusually high ability to jump. Since he was young, Hinata trained his legs to compensate for his lack of height.",img : "hinata.jpg"},{name:"Yuu Nishinoya",number:"4",Postion : "Libero",Height : "159.3cm",para: "Yuu is a very energetic and temperamental person. His boisterous nature and crazy shenanigans can attract unwanted attention quite easily, which often bodes ill for him.",img : "nishinoya.jpg"},{name:"Ryuunosuke Tanaka",number:"5",Postion : "Wing Spiker",Height : "177.2cm",para: "Loud, hot-headed and easily angered, he is no stranger to picking fights. He is also somewhat of a slacker, shown by his less-than-stellar work ethic in school.",img : "tanaka.jpg"},{name:"Kei Tsukishima",number:"11",Postion : "Middle Blocker",Height : "190.1cm",para: "Tsukishima is very blunt and has a habit of riling people up. He dislikes “hot-blooded people” and doesn’t like to exert too much effort.",img : "tsukki.jpg"}];
+    
+    z=0;
+    show();
+    $(".next").click(function() {
+      if(z==7)
+      {
+        z=0;
+      }
+      else
+      {
+        z+=1;
+      }
+      show();
+    })
+    $(".prev").click(function() {
+      if(z==0)
+      {
+        z=7;
+      }
+      else
+      {
+        z-=1;
+      }
+      show();
+    })
+    function show() {
+      $(".imgbox").css('background-image', 'url(' + det[z].img + ')');
+      $(".name").html(det[z].name)
+      $(".no").html(det[z].number)
+      $(".pos").html(det[z].Position)
+      $(".height").html(det[z].Height)
+      $(".para").html(det[z].para)
+    }
+  </script>
+</body>
+</html>
