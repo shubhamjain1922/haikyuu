@@ -19,15 +19,18 @@
     .wrapper {
       height: 100vh;
       width: 100vw;
-      padding-top: 6%;
+      padding-top: 3%;
       background: #ff7b00;
     }
 
     .box {
       height: 500px;
       margin: auto;
-      width: 70%;
-      background: #000000;
+      width: 80%;
+      background: url("court.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     .infobox {
@@ -35,8 +38,17 @@
       padding:0;
       color: white;
       position: relative;
+      /*clip-path: polygon(0 0, 100% 0%, 57% 100%, 0% 100%);*/
+      opacity: 1;
+    }
+
+    .bac {
+      position: absolute;
+      height: 100%;
+      width: 100%;
       background: #181723;
       clip-path: polygon(0 0, 100% 0%, 57% 100%, 0% 100%);
+      opacity: 0.3;
     }
 
     .me-auto {
@@ -44,7 +56,7 @@
     }
 
     .imgbox {
-      /*background: url(asahi.jpg);*/
+      background: url("teams/karasuno.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -54,6 +66,7 @@
       margin-top: 40px;
       margin-left: 30px;
       width: 60%;
+      z-index: 5;
     }
 
     .next {
@@ -63,6 +76,7 @@
       cursor: pointer;
       text-decoration: none;
       color: white;
+      color: #ff7b00;
     }
 
     .prev {
@@ -71,10 +85,99 @@
       cursor: pointer;
       text-decoration: none;
       color: white;
+      color: #ff7b00;
     }
 
     .next:hover,.prev:hover {
       color: #ff7b00;
+    }
+
+    .name {
+      opacity: 0;
+      cursor: pointer;
+    }
+
+
+    .leftanim {
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-delay: 2s;
+      position: relative;
+      animation-fill-mode: forwards;
+    }
+
+    .boxanim {
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-delay: 1s;
+      position: relative;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes slide {
+      0% {
+        left: -50px;
+        opacity: 0;
+      }
+      100% {
+        left: 0;
+        opacity: 1;
+      }
+    }
+
+    .teamwrapper {
+      width: 80%;
+      padding-top: 30px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .teamselect {
+      width: 160px;
+      height: 130px;
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .teamselect:hover {
+      box-shadow: 0 0 10px black;
+    }
+
+    .teamselect:hover .teamname {
+      font-weight: 500;
+      font-size: 1.1em;
+    }
+
+    .teamimg {
+      height: 100%;
+      width: 100%;
+    }
+
+    .cover {
+      background: black;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      opacity: 0.5;
+    }
+
+    .teamname {
+      position: absolute;
+      top: 33%;
+      left: 17%;
+      color: white;
+      text-align: center;
+    }
+
+    .selected {
+      border: 2px solid white;
+      font-weight: 500;
+      font-size: 1.1em;
+      box-shadow: 0 0 15px black;
     }
 
   </style>
@@ -84,9 +187,8 @@
   <div class="wrapper">
     <div class="box container-fluid">
       <div class="row">
-        <div class="col-md-8 infobox">
-          
-
+        <div class="col-md-5 infobox">
+          <div class="bac"></div>
           <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html" style="color: white; font-size: 1.5em; font-weight: 600;">Haikyuu</a>
@@ -113,18 +215,53 @@
           </nav>
 
           <div class="info">
-            <h1 class="name"></h1>
+            <h1 class="teamnameshow">Karasuno High</h1>
+            <p class="sloganbox"><span class="slogan"></span></p>
             <br>
-            <p>Team : Karasuno High</p>
-            <p>Postion : <span class="pos"></span></p>
-            <p>Number : <span class="no"></span></p>
-            <p>Height : <span class="height"></span></p>
-            <p class="para"></p>
-            <a class="prev">Prev</a>
-            <a class="next">Next</a>
+            <p class="captainbox">Captain : <span class="captain"></span></p>
+            <p class="coachbox">Coach : <span class="coach"></span></p>
+            <p class="prefbox">Prefecture : <span class="pref"></span></p>
+            <p class="colorbox">Colors : <span class="color"></span></p>
           </div>
         </div>
-        <div class="col-md-4 imgbox"></div>
+        <div class="col-md-7 imgbox"></div>
+      </div>
+    </div>
+    <div class="teamwrapper">
+      <div class="teamselect nekoma">
+        <img src="cover/nekoma.jpg" class="teamimg">
+        <div class="cover"></div>
+        <p class="teamname">Nekoma High</p>
+      </div>
+      <div class="teamselect karasuno">
+        <img src="cover/karasuno.jpg" class="teamimg">
+        <div class="cover"></div>
+        <p class="teamname">Karasuno High</p>
+      </div>
+      <div class="teamselect aoba">
+        <img src="cover/aoba.jpg" class="teamimg">
+        <div class="cover"></div>
+        <p class="teamname">Aoba Joshai High</p>
+      </div>
+      <div class="teamselect fuku">
+        <img src="cover/fuku.jpg" class="teamimg">
+        <div class="cover"></div>
+        <p class="teamname">Fukurodani Academy</p>
+      </div>
+      <div class="teamselect inarizaki">
+        <img src="cover/inarizaki.jpg" class="teamimg">
+        <div class="cover"></div>
+        <p class="teamname">Inarizaki High</p>
+      </div>
+      <div class="teamselect shiratori">
+        <img src="cover/shiratori.jpg" class="teamimg">
+        <div class="cover"></div>
+        <p class="teamname">Shiratorizawa Academy</p>
+      </div>
+      <div class="teamselect dateho">
+        <img src="cover/dateko.jpg" class="teamimg">
+        <div class="cover"></div>
+        <p class="teamname">Date Tech High</p>
       </div>
     </div>
   </div>
@@ -133,41 +270,56 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   <script>
-    var det=[{name:"Asahi Azumane",number:"3",Postion : "Wing Spiker",Height : "184.7cm",para: "In contrast to his appearance, he is rather quiet and gentle and acknowledges his position as Karasuno's ace (even though he is still mocked sometimes by Daichi for not having any 'ace-like presence').",img : "asahi.jpg"},{name:"Daichi Sawamura(c)",number:"1",Postion : "Wing Spiker",Height : "176.8cm",para: "The captain of the Karasuno High volleyball club, Daichi is a very caring and concerned captain who makes sure that everyone is doing okay and always puts the team first.",img : "daichi.jpg"},{name:"Koushi Sugawara",number:"2",Postion : "Setter",Height : "174.3cm",para: "Being the vice captain, he has a soothing personality for his teammates and acts as a pillar of support for them.",img : "sugawara.jpg"},{name:"Tobio Kageyama",number:"9",Postion : "Setter",Height : "181.9cm",para: "Kageyama is also know as 'King of the Court', a nickname that insinuates his autocratic nature. Kageyama is regarded as a prodigy.",img : "kageyama.jpg"},{name:"Shoyo Hinata",number:"10",Postion : "Middle Blocker",Height : "162.8cm",para: "Hinata has an unusually high ability to jump. Since he was young, Hinata trained his legs to compensate for his lack of height.",img : "hinata.jpg"},{name:"Yuu Nishinoya",number:"4",Postion : "Libero",Height : "159.3cm",para: "Yuu is a very energetic and temperamental person. His boisterous nature and crazy shenanigans can attract unwanted attention quite easily, which often bodes ill for him.",img : "nishinoya.jpg"},{name:"Ryuunosuke Tanaka",number:"5",Postion : "Wing Spiker",Height : "177.2cm",para: "Loud, hot-headed and easily angered, he is no stranger to picking fights. He is also somewhat of a slacker, shown by his less-than-stellar work ethic in school.",img : "tanaka.jpg"},{name:"Kei Tsukishima",number:"11",Postion : "Middle Blocker",Height : "190.1cm",para: "Tsukishima is very blunt and has a habit of riling people up. He dislikes “hot-blooded people” and doesn’t like to exert too much effort.",img : "tsukki.jpg"}];
+    var det=[{nick:"karasuno",name:"Karasuno High",captain:"Daichi Sawamura",coach : "Keishin Ukai",pref: "Miyagi",colors: "White / Orange / Black",slogan: '"Fly"'},{nick:"nekoma",name:"Nekoma High",captain:"Tetsurō Kuroo",coach : "Yasufumi Nekomata",pref: "Tokyo",colors: "Black / Red",slogan: '"We are like the blood in our veins"'},{nick:"aoba",name:"Aoba Johsai High",captain:"Tōru Oikawa",coach : "Nobuteru Irihata",pref: "Miyagi",colors: "White / Turquoise",slogan: '"Rule the court"'},{nick:"fuku",name:"Fukurōdani Academy",captain:"Kōtarō Bokuto",coach : "Takeyuki Yamiji",pref: "Tokyo",colors: "Black / Gold / White",slogan: '"Pour all your soul into each ball"'},{nick:"inarizaki",name:"Inarizaki High",captain:"Shinsuke Kita",coach : "Norimune Kurosu",pref: "Hyōgo",colors: "White / Black",slogan: '"We dont need memories"'},{nick:"shiratori",name:"Shiratorizawa Academy",captain:"Wakatoshi Ushijima",coach : "Tanji Washijō",pref: "Miyagi",colors: "White / Purple",slogan: '"Irresistible Force"'},{nick:"dateho",name:"Date Tech High",captain:"Kaname Moniwa",coach : "Takurō Oiwake",pref: "Miyagi",colors: "White / Teal",slogan: '"Iron Wall of Date"'}];
     
-    z=0;
+      data="karasuno";
+    $(".karasuno").addClass("selected")
     show();
-    $(".next").click(function() {
-      if(z==7)
-      {
-        z=0;
-      }
-      else
-      {
-        z+=1;
-      }
-      show();
-    })
-    $(".prev").click(function() {
-      if(z==0)
-      {
-        z=7;
-      }
-      else
-      {
-        z-=1;
-      }
+    $(".teamselect").click(function(){
+      $(".teamselect").removeClass("selected");
+      $(this).addClass("selected");
+      console.log()
+      data = $(this).attr("class").split(" ")[1];
       show();
     })
     function show() {
+      for(i=0;i<=7;i++)
+      {
+        if(data===det[i].nick)
+        {
+          z=i
+          break;
+        }
+      }
       $(".imgbox").css('background-image', 'url(' + det[z].img + ')');
-      $(".name").html(det[z].name)
-      $(".no").html(det[z].number)
-      $(".pos").html(det[z].Position)
-      $(".height").html(det[z].Height)
-      $(".para").html(det[z].para)
+      $(".teamnameshow").html(det[z].name)
+      $(".captain").html(det[z].captain)
+      $(".coach").html(det[z].coach)
+      $(".color").html(det[z].colors)
+      $(".pref").html(det[z].pref)
+      $(".slogan").html(det[z].slogan)
+    //   $(".imgbox").hide().delay(0).fadeIn(1000);
+    //   $(".infobox").addClass("boxanim");
+    //   $(".infobox").on("animationend", function(){
+    //   $(this).removeClass('boxanim');
+    //   $(".infobox").css("opacity","1")
+    // });
+    //   $(".name").addClass("leftanim")
+    //   $(".name").on("animationend", function(){
+    //   $(this).removeClass('leftanim');
+    //   $(".name").css("opacity","1")
+    // });
+    //   $(".teambox").hide().delay(2000).fadeIn(1000);
+    //   $(".pobox").hide().delay(2150).fadeIn(1000);
+    //   $(".nobox").hide().delay(2300).fadeIn(1000);
+    //   $(".heightbox").hide().delay(2450).fadeIn(1000);
+    //   $(".para").hide().delay(2600).fadeIn(1000);
+    //   $(".prev").hide().delay(2750).fadeIn(1000);
+    //   $(".next").hide().delay(2750).fadeIn(1000);
     }
+
   </script>
 </body>
 </html>
