@@ -37,6 +37,7 @@
       position: relative;
       background: #181723;
       clip-path: polygon(0 0, 100% 0%, 57% 100%, 0% 100%);
+      opacity: 0;
     }
 
     .me-auto {
@@ -79,6 +80,39 @@
       color: #ff7b00;
     }
 
+    .name {
+      opacity: 0;
+      cursor: pointer;
+    }
+
+
+    .leftanim {
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-delay: 2s;
+      position: relative;
+      animation-fill-mode: forwards;
+    }
+
+    .boxanim {
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-delay: 1s;
+      position: relative;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes slide {
+      0% {
+        left: -50px;
+        opacity: 0;
+      }
+      100% {
+        left: 0;
+        opacity: 1;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -87,7 +121,6 @@
     <div class="box container-fluid">
       <div class="row">
         <div class="col-md-8 infobox">
-          
 
           <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -117,10 +150,10 @@
           <div class="info">
             <h1 class="name"></h1>
             <br>
-            <p>Team : Karasuno High</p>
-            <p>Postion : <span class="pos"></span></p>
-            <p>Number : <span class="no"></span></p>
-            <p>Height : <span class="height"></span></p>
+            <p class="teambox">Team : Karasuno High</p>
+            <p class="pobox">Postion : <span class="pos"></span></p>
+            <p class="nobox">Number : <span class="no"></span></p>
+            <p class="heightbox">Height : <span class="height"></span></p>
             <p class="para"></p>
             <a class="prev">Prev</a>
             <a class="next">Next</a>
@@ -138,7 +171,7 @@
   <script>
     var det=[{nick:"asahi",name:"Asahi Azumane",number:"3",Postion : "Wing Spiker",Height : "184.7cm",para: "In contrast to his appearance, he is rather quiet and gentle and acknowledges his position as Karasuno's ace (even though he is still mocked sometimes by Daichi for not having any 'ace-like presence').",img : "asahi.jpg"},{nick:"daichi",name:"Daichi Sawamura(c)",number:"1",Postion : "Wing Spiker",Height : "176.8cm",para: "The captain of the Karasuno High volleyball club, Daichi is a very caring and concerned captain who makes sure that everyone is doing okay and always puts the team first.",img : "daichi.jpg"},{nick:"sugawara",name:"Koushi Sugawara",number:"2",Postion : "Setter",Height : "174.3cm",para: "Being the vice captain, he has a soothing personality for his teammates and acts as a pillar of support for them.",img : "sugawara.jpg"},{nick:"kageyama",name:"Tobio Kageyama",number:"9",Postion : "Setter",Height : "181.9cm",para: "Kageyama is also know as 'King of the Court', a nickname that insinuates his autocratic nature. Kageyama is regarded as a prodigy.",img : "kageyama.jpg"},{nick:"hinata",name:"Shoyo Hinata",number:"10",Postion : "Middle Blocker",Height : "162.8cm",para: "Hinata has an unusually high ability to jump. Since he was young, Hinata trained his legs to compensate for his lack of height.",img : "hinata.jpg"},{nick:"nishinoya",name:"Yuu Nishinoya",number:"4",Postion : "Libero",Height : "159.3cm",para: "Yuu is a very energetic and temperamental person. His boisterous nature and crazy shenanigans can attract unwanted attention quite easily, which often bodes ill for him.",img : "nishinoya.jpg"},{nick:"tanaka",name:"Ryuunosuke Tanaka",number:"5",Postion : "Wing Spiker",Height : "177.2cm",para: "Loud, hot-headed and easily angered, he is no stranger to picking fights. He is also somewhat of a slacker, shown by his less-than-stellar work ethic in school.",img : "tanaka.jpg"},{nick:"tsukki",name:"Kei Tsukishima",number:"11",Postion : "Middle Blocker",Height : "190.1cm",para: "Tsukishima is very blunt and has a habit of riling people up. He dislikes “hot-blooded people” and doesn’t like to exert too much effort.",img : "tsukki.jpg"}];
     
-    var x=localStorage.getItem("myJson"); //getting job data
+    var x=localStorage.getItem("myJson");
     var data=JSON.parse(x);
     for(i=0;i<=7;i++)
     {
@@ -150,6 +183,8 @@
     }
     show();
     $(".next").click(function() {
+      $(".infobox").css("opacity","0");
+      $(".name").css("opacity","0");
       if(z==7)
       {
         z=0;
@@ -161,6 +196,8 @@
       show();
     })
     $(".prev").click(function() {
+      $(".infobox").css("opacity","0");
+      $(".name").css("opacity","0");
       if(z==0)
       {
         z=7;
@@ -171,14 +208,39 @@
       }
       show();
     })
+    $(".name").click(function() {
+      var audio = new Audio('svg/'+det[z].nick+'.mp3');
+       var playPromise = audio.play();
+    })
     function show() {
+      var audio = new Audio('svg/'+det[z].nick+'.mp3');
+       var playPromise = audio.play();
       $(".imgbox").css('background-image', 'url(' + det[z].img + ')');
       $(".name").html(det[z].name)
       $(".no").html(det[z].number)
-      $(".pos").html(det[z].Position)
+      $(".pos").html(det[z].Postion)
       $(".height").html(det[z].Height)
       $(".para").html(det[z].para)
+      $(".imgbox").hide().delay(0).fadeIn(1000);
+      $(".infobox").addClass("boxanim");
+      $(".infobox").on("animationend", function(){
+      $(this).removeClass('boxanim');
+      $(".infobox").css("opacity","1")
+    });
+      $(".name").addClass("leftanim")
+      $(".name").on("animationend", function(){
+      $(this).removeClass('leftanim');
+      $(".name").css("opacity","1")
+    });
+      $(".teambox").hide().delay(2000).fadeIn(1000);
+      $(".pobox").hide().delay(2150).fadeIn(1000);
+      $(".nobox").hide().delay(2300).fadeIn(1000);
+      $(".heightbox").hide().delay(2450).fadeIn(1000);
+      $(".para").hide().delay(2600).fadeIn(1000);
+      $(".prev").hide().delay(2750).fadeIn(1000);
+      $(".next").hide().delay(2750).fadeIn(1000);
     }
+
   </script>
 </body>
 </html>

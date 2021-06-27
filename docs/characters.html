@@ -35,19 +35,12 @@
       padding:0;
       color: black;
       position: relative;
+      background: #c0815a;
+      opacity: 0;
     }
 
     .me-auto {
       margin-left: auto;
-    }
-
-    .bac {
-      background: #524d75;
-      height: 100%;
-      width: 100%;
-      opacity: 0.3;
-      position: absolute;
-      top: 0;
     }
 
     .imgbox {
@@ -135,6 +128,31 @@
       right: 857px;
       opacity: 0;
     }
+    .pl {
+      cursor: pointer;
+    }
+    .pl:hover {
+      color: white;
+    }
+
+    .infobox {
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-delay: 1s;
+      position: relative;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes slide {
+      0% {
+        left: -50px;
+        opacity: 0;
+      }
+      100% {
+        left: 0;
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -173,14 +191,14 @@
           <div class="info">
             <h1 class="teamname">Karasuno High</h1>
             <br>
-            <p class="pl_daichi">Daichi Sawamura(c)</p>
-            <p class="pl_asahi">Asahi Azumane</p>
-            <p class="pl_tanaka">Ryuunosuke Tanaka</p>
-            <p class="pl_nishinoya">Yuu Nishinoya</p>
-            <p class="pl_hinata">Shoyo Hinata</p>
-            <p class="pl_kageyama">Tobio Kageyama</p>
-            <p class="pl_tsukki">Kei Tsukishima</p>
-            <p class="pl_sugawara">Kousi Sugawara</p>
+            <p class="pl_daichi pl 1">Daichi Sawamura(c)</p>
+            <p class="pl_asahi pl 2">Asahi Azumane</p>
+            <p class="pl_tanaka pl 3">Ryuunosuke Tanaka</p>
+            <p class="pl_nishinoya pl 4">Yuu Nishinoya</p>
+            <p class="pl_hinata pl 5">Shoyo Hinata</p>
+            <p class="pl_kageyama pl 6">Tobio Kageyama</p>
+            <p class="pl_tsukki pl 7">Kei Tsukishima</p>
+            <p class="pl_sugawara pl 8">Kousi Sugawara</p>
           </div>
         </div>
         <div class="col-md-8 imgbox">
@@ -234,9 +252,29 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
+      $(".imgbox").hide().fadeIn(1000);
+      $(".teamname").hide().delay(1200).fadeIn(1000);
+      for(i=0;i<8;i++)
+      {
+        var x = 1800+(150*i);
+        var z = i+1;
+        $("."+z).hide().delay(x).fadeIn(1000);
+      }
       $(".hover").mouseenter(function(){
         classLink = $(this).attr('class');
         classLink=classLink.split(" ")[0];
+        var x = document.getElementById(classLink); 
+        x.play()
+        $("."+classLink).css("opacity","1")
+        $(".pl_"+classLink).addClass("active")
+      }).mouseleave(function(){
+        $("."+classLink).css("opacity","0")
+        $(".pl_"+classLink).removeClass("active")
+      });
+
+      $(".pl").mouseenter(function(){
+        classLink = $(this).attr('class');
+        classLink=classLink.split(" ")[0].split("_")[1];
         var x = document.getElementById(classLink); 
         x.play()
         $("."+classLink).css("opacity","1")
@@ -252,6 +290,14 @@
         localStorage.setItem("myJson", JSON.stringify(classLink));
         window.location.href = "profile.html";
       })
+
+      $(".pl").click(function(){
+        classLink = $(this).attr('class');
+        classLink=classLink.split(" ")[0].split("_")[1];
+        localStorage.setItem("myJson", JSON.stringify(classLink));
+        window.location.href = "profile.html";
+      })
+
     </script>
   </body>
   </html>
