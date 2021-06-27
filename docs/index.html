@@ -1,316 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=5"/>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  
-  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-
-  <title>Haikyuu</title>
-
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-    }
-
-    .wrapper {
-      height: 100vh;
-      width: 100vw;
-      padding-top: 3%;
-      background: #ff7b00;
-    }
-
-    .box {
-      height: 450px;
-      margin: auto;
-      width: 80%;
-      background: url("court.jpg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-    }
-
-    .infobox {
-      height: 450px;
-      padding:0;
-      color: white;
-      position: relative;
-      opacity: 0;
-    }
-
-    .bac {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background: #181723;
-      clip-path: polygon(0 0, 100% 0%, 57% 100%, 0% 100%);
-      opacity: 0.7;
-    }
-
-    .me-auto {
-      margin-left: auto;
-    }
-
-    .imgbox {
-      height: 500px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100% 80%;
-    }
-
-    .info {
-      width: 60%;
-      color: white;
-      position: absolute;
-      left: 20px;
-      top: 90px;
-    }
-
-    .name {
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    .teamnameshow {
-      opacity: 0;
-    }
-
-
-    .leftanim {
-      animation-name: slide;
-      animation-duration: 1s;
-      animation-delay: 2s;
-      position: relative;
-      animation-fill-mode: forwards;
-    }
-
-    .boxanim {
-      animation-name: slide;
-      animation-duration: 1s;
-      animation-delay: 1s;
-      position: relative;
-      animation-fill-mode: forwards;
-    }
-
-    @keyframes slide {
-      0% {
-        left: -50px;
-        opacity: 0;
-      }
-      100% {
-        left: 0;
-        opacity: 1;
-      }
-    }
-
-    .teamwrapper {
-      width: 80%;
-      padding-top: 30px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
-
-    .teamselect {
-      width: 160px;
-      height: 130px;
-      display: inline-block;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .teamselect:hover {
-      box-shadow: 0 0 10px black;
-    }
-
-    .teamselect:hover .teamname {
-      font-weight: 500;
-      font-size: 1.1em;
-    }
-
-    .teamimg {
-      height: 100%;
-      width: 100%;
-    }
-
-    .cover {
-      background: black;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      opacity: 0.5;
-    }
-
-    .teamname {
-      position: absolute;
-      top: 33%;
-      left: 13%;
-      color: white;
-      text-align: center;
-    }
-
-    .selected {
-      border: 2px solid white;
-      font-weight: 500;
-      font-size: 1.1em;
-      box-shadow: 0 0 15px black;
-    }
-
-  </style>
-</head>
-<body>
-
-  <div class="wrapper">
-    <div class="box container-fluid">
-      <div class="row">
-        <div class="col-md-5 infobox">
-          <div class="bac"></div>
-          <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.html" style="color: white; font-size: 1.5em; font-weight: 600;">Haikyuu</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.html" style="color: white;">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="teams.html" style="color: white;">Teams</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="characters.html" style="color: white;">Characters</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="roadmap.html" style="color: white;">Roadmap</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-
-          <div class="info">
-            <h1 class="teamnameshow">Karasuno High</h1>
-            <br>
-            <h5 class="sloganbox"><span class="slogan"></span></h5>
-            <br>
-            <p class="captainbox">Captain : <span class="captain"></span></p>
-            <p class="coachbox">Coach : <span class="coach"></span></p>
-            <p class="prefbox">Prefecture : <span class="pref"></span></p>
-            <p class="colorbox">Colors : <span class="color"></span></p>
-          </div>
-        </div>
-        <div class="col-md-7 imgbox"></div>
-      </div>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+    <title>Haikyu</title>
+    <style>
+      @-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 4s linear infinite;
+  -moz-animation: rotating 4s linear infinite;
+  -ms-animation: rotating 4s linear infinite;
+  -o-animation: rotating 4s linear infinite;
+  animation: rotating 4s linear infinite;
+}
+.content{
+  background-color: #000;
+  height:70px;
+  position:relative;
+  margin-top: 45px;
+}
+.content:before{
+  position:absolute;
+  width:60%;
+  height:105px;
+  content:'';
+  top:-50px;
+  left:0;
+  background-color: #000;
+  transform:skewY(10deg);
+}
+.content:after{
+  position:absolute;
+  width:60%;
+  height:105px;
+  content:'';
+  top:-50px;
+  right:0;
+  background-color: #000;
+  transform:skewY(-10deg);
+}
+.bg-dark{
+  background-color: #000!important;
+  padding:10px!important;
+}
+.navbar-brand{
+  color:#ff7b00!important;
+  font-family: 'Carter One', cursive;
+}
+.navbar-brand:hover{
+  color:white!important;
+}
+    </style>
+  </head>
+  <body style="background-color: #ff7b00">
+    <audio loop>
+      <source src="index/hi.mp3" type="audio/mp3">
+    </audio>
+    <div>
+     <nav id="mainNavbar" class="navbar navbar-expand-md bg-dark fixed-top">
+  <div style="display: flex;justify-content: center;" class="container-fluid">
+    <div>
+      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="#"><img class="rotating" style="height:30px;width:30px" src='index/haikyuball.jpg'></a>
     </div>
-    <div class="teamwrapper">
-      <div class="teamselect nekoma">
-        <img src="cover/nekoma.jpg" class="teamimg">
-        <div class="cover"></div>
-        <p class="teamname">Nekoma High</p>
-      </div>
-      <div class="teamselect karasuno">
-        <img src="cover/karasuno.jpg" class="teamimg">
-        <div class="cover"></div>
-        <p class="teamname">Karasuno High</p>
-      </div>
-      <div class="teamselect aoba">
-        <img src="cover/aoba.jpg" class="teamimg">
-        <div class="cover"></div>
-        <p class="teamname" style="left: 7%">Aoba Joshai High</p>
-      </div>
-      <div class="teamselect fuku">
-        <img src="cover/fuku.jpg" class="teamimg">
-        <div class="cover"></div>
-        <p class="teamname">Fukurodani Academy</p>
-      </div>
-      <div class="teamselect inarizaki">
-        <img src="cover/inarizaki.jpg" class="teamimg">
-        <div class="cover"></div>
-        <p class="teamname" style="left: 14%">Inarizaki High</p>
-      </div>
-      <div class="teamselect shiratori">
-        <img src="cover/shiratori.jpg" class="teamimg">
-        <div class="cover"></div>
-        <p class="teamname" style="left: 5%">Shiratorizawa Academy</p>
-      </div>
-      <div class="teamselect dateho">
-        <img src="cover/dateho.jpg" class="teamimg">
-        <div class="cover"></div>
-        <p class="teamname">Date Tech High</p>
-      </div>
+    <div>
+      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="index.html">HOME</a>
+    </div>
+    <div>
+      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="characters.html">CHARACTERS</a>
+    </div>
+    <div>
+      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="index.html"><img style="height:40px;" src='index/haikyuutex.png'></a>
+    </div>
+    <div>
+      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="teams.html">TEAMS</a>
+    </div>
+    <div>
+      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="roadmap.html">ROADMAP</a>
+    </div>
+    <div>
+      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="#"><img class="rotating" style="height:30px;width:30px" src='index/haikyuball.jpg'></a>
     </div>
   </div>
+</nav>
+    <div style="padding-top: 50px" class="container">
+      <div style="background-color: #ff7b00" class="row">
+        <div style="display: flex;justify-content: center;" class="col-md-12">
+          <img id="click" onmouseover="my()" style="width:88%;height:100%" src="index/maingif.gif">
+        </div>
+        <div style="display: flex;justify-content: center;margin-top: 21px;background-color: #ff7b00">
+          <img class="rotating" style="height:120px;width:120px" src='index/haikyuuball.jpg'>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="content">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-  <script>
-    var det=[{nick:"karasuno",name:"Karasuno High",captain:"Daichi Sawamura",coach : "Keishin Ukai",pref: "Miyagi",colors: "White / Orange / Black",slogan: '"Fly"',back: "#ff7b00"},{nick:"nekoma",name:"Nekoma High",captain:"Tetsurō Kuroo",coach : "Yasufumi Nekomata",pref: "Tokyo",colors: "Black / Red",slogan: '"We are like the blood in our veins"',back: "#9b3333"},{nick:"aoba",name:"Aoba Johsai High",captain:"Tōru Oikawa",coach : "Nobuteru Irihata",pref: "Miyagi",colors: "White / Turquoise",slogan: '"Rule the court"',back: "#79c6c6"},{nick:"fuku",name:"Fukurōdani Academy",captain:"Kōtarō Bokuto",coach : "Takeyuki Yamiji",pref: "Tokyo",colors: "Black / Gold / White",slogan: '"Pour all your soul into each ball"',back: "#2f3138"},{nick:"inarizaki",name:"Inarizaki High",captain:"Shinsuke Kita",coach : "Norimune Kurosu",pref: "Hyōgo",colors: "White / Black",slogan: '"We dont need memories"',back: "#282828"},{nick:"shiratori",name:"Shiratorizawa Academy",captain:"Wakatoshi Ushijima",coach : "Tanji Washijō",pref: "Miyagi",colors: "White / Purple",slogan: '"Irresistible Force"',back: "#9f3275"},{nick:"dateho",name:"Date Tech High",captain:"Kaname Moniwa",coach : "Takurō Oiwake",pref: "Miyagi",colors: "White / Teal",slogan: '"Iron Wall of Date"',back: "#386868"}];
-    start=0;
-    $(".teamselect").hide().delay(0).fadeIn(2000);
-    $(".teamselect").click(function(){
-      $(".infobox").css("opacity","0");
-      $(".teamnameshow").css("opacity","0");
-      $(".teamselect").removeClass("selected");
-      $(this).addClass("selected");
-      console.log()
-      data = $(this).attr("class").split(" ")[1];
-      show();
-    })
-    function show() {
-      for(i=0;i<=7;i++)
-      {
-        if(data===det[i].nick)
-        {
-          z=i
-          break;
-        }
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script>
+      play();
+      function play(){
+var audio = new Audio('index/hi.mp3');
+       var playPromise = audio.play();
       }
-      if(start==0)
-      {
-        start=1;
-      }
-      else
-      {
-        playPromise =audio.pause()
-      }
-      audio = new Audio('cover/'+det[z].nick+'.mp3');
-       playPromise = audio.play();
-       $(".wrapper").css("background",""+det[z].back+"")
-      $(".imgbox").css('background-image', 'url(teams/' + det[z].nick + '.png)');
-      $(".teamnameshow").html(det[z].name)
-      $(".captain").html(det[z].captain)
-      $(".coach").html(det[z].coach)
-      $(".color").html(det[z].colors)
-      $(".pref").html(det[z].pref)
-      $(".slogan").html(det[z].slogan)
-      $(".imgbox").hide().delay(0).fadeIn(2000);
-      $(".infobox").addClass("boxanim");
-      $(".infobox").on("animationend", function(){
-      $(this).removeClass('boxanim');
-      $(".infobox").css("opacity","1")
-    });
-      $(".teamnameshow").addClass("leftanim")
-      $(".teamnameshow").on("animationend", function(){
-      $(this).removeClass('leftanim');
-      $(".teamnameshow").css("opacity","1")
-    });
-      $(".slogan").hide().delay(2000).fadeIn(1000);
-      $(".captainbox").hide().delay(2150).fadeIn(1000);
-      $(".coachbox").hide().delay(2300).fadeIn(1000);
-      $(".prefbox").hide().delay(2450).fadeIn(1000);
-      $(".colorbox").hide().delay(2600).fadeIn(1000);
-    }
-
-  </script>
-</body>
+      
+    </script>
+  </body>
 </html>
