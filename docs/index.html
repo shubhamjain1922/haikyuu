@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+  <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,132 +12,132 @@
     <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
     <title>Haikyu</title>
     <style>
-      @-webkit-keyframes rotating /* Safari and Chrome */ {
-  from {
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes rotating {
-  from {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-.rotating {
-  -webkit-animation: rotating 4s linear infinite;
-  -moz-animation: rotating 4s linear infinite;
-  -ms-animation: rotating 4s linear infinite;
-  -o-animation: rotating 4s linear infinite;
-  animation: rotating 4s linear infinite;
-}
-.content{
-  background-color: #000;
-  height:70px;
-  position:relative;
-  margin-top: 45px;
-}
-.content:before{
-  position:absolute;
-  width:60%;
-  height:105px;
-  content:'';
-  top:-50px;
-  left:0;
-  background-color: #000;
-  transform:skewY(10deg);
-}
-.content:after{
-  position:absolute;
-  width:60%;
-  height:105px;
-  content:'';
-  top:-50px;
-  right:0;
-  background-color: #000;
-  transform:skewY(-10deg);
-}
-.bg-dark{
-  background-color: #000!important;
-  padding:10px!important;
-}
-.navbar-brand{
-  color:#ff7b00!important;
-  font-family: 'Carter One', cursive;
-}
-.navbar-brand:hover{
-  color:white!important;
-}
-    </style>
-  </head>
-  <body style="background-color: #ff7b00">
-    <audio loop>
-      <source src="index/hi.mp3" type="audio/mp3">
+    @-webkit-keyframes rotating /* Safari and Chrome */ {
+      from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    .rotating {
+      -webkit-animation: rotating 4s linear infinite;
+      -moz-animation: rotating 4s linear infinite;
+      -ms-animation: rotating 4s linear infinite;
+      -o-animation: rotating 4s linear infinite;
+      animation: rotating 4s linear infinite;
+    }
+    .content{
+      background-color: #000;
+      height:70px;
+      position:relative;
+      margin-top: 45px;
+    }
+    .content:before{
+      position:absolute;
+      width:60%;
+      height:105px;
+      content:'';
+      top:-50px;
+      left:0;
+      background-color: #000;
+      transform:skewY(10deg);
+    }
+    .content:after{
+      position:absolute;
+      width:60%;
+      height:105px;
+      content:'';
+      top:-50px;
+      right:0;
+      background-color: #000;
+      transform:skewY(-10deg);
+    }
+    .bg-dark{
+      background-color: #000!important;
+      padding:10px!important;
+    }
+    .navbar-brand{
+      color:#ff7b00!important;
+      font-family: 'Carter One', cursive;
+    }
+    .navbar-brand:hover{
+      color:white!important;
+    }
+  </style>
+</head>
+<body style="background-color: #ff7b00">
+  <audio loop>
+    <source src="index/hi.mp3" type="audio/mp3">
     </audio>
     <div>
      <nav id="mainNavbar" class="navbar navbar-expand-md bg-dark fixed-top">
-  <div style="display: flex;justify-content: center;" class="container-fluid">
-    <div>
-      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="#"><img class="rotating" style="height:30px;width:30px" src='index/haikyuball.jpg'></a>
-    </div>
-    <div>
-      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="index.html">HOME</a>
-    </div>
-    <div>
-      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="characters.html">CHARACTERS</a>
-    </div>
-    <div>
-      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="index.html"><img style="height:40px;" src='index/haikyuutex.png'></a>
-    </div>
-    <div>
-      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="teams.html">TEAMS</a>
-    </div>
-    <div>
-      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="roadmap.html">ROADMAP</a>
-    </div>
-    <div>
-      <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="#"><img class="rotating" style="height:30px;width:30px" src='index/haikyuball.jpg'></a>
-    </div>
-  </div>
-</nav>
+      <div style="display: flex;justify-content: center;" class="container-fluid">
+        <div>
+          <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="#"><img class="rotating" style="height:30px;width:30px" src='index/haikyuball.jpg'></a>
+        </div>
+        <div>
+          <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="index.html">HOME</a>
+        </div>
+        <div>
+          <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="characters.html">CHARACTERS</a>
+        </div>
+        <div>
+          <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="index.html"><img style="height:40px;" src='index/haikyuutex.png'></a>
+        </div>
+        <div>
+          <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="teams.html">TEAMS</a>
+        </div>
+        <div>
+          <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="roadmap.html">ROADMAP</a>
+        </div>
+        <div>
+          <a style="text-align: center;" class="navbar-brand ms-3 me-4 my-2" href="#"><img class="rotating" style="height:30px;width:30px" src='index/haikyuball.jpg'></a>
+        </div>
+      </div>
+    </nav>
     <div style="padding-top: 50px" class="container">
       <div style="background-color: #ff7b00" class="row">
         <div style="display: flex;justify-content: center;" class="col-md-12">
-          <img id="click" onmouseover="my()" style="width:88%;height:100%" src="index/maingif.gif">
+          <img id="click" style="width:88%;height:100%" src="index/maingif.gif">
         </div>
         <div style="display: flex;justify-content: center;margin-top: 21px;background-color: #ff7b00">
           <img class="rotating" style="height:120px;width:120px" src='index/haikyuuball.jpg'>
         </div>
       </div>
     </div>
-    </div>
-    <div class="content">
+  </div>
+  <div class="content">
 
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script>
-      play();
-      function play(){
-var audio = new Audio('index/hi.mp3');
-       var playPromise = audio.play();
-      }
-      
-    </script>
-  </body>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script>
+    play();
+    function play(){
+      var audio = new Audio('index/hi.mp3');
+      var playPromise = audio.play();
+    }
+
+  </script>
+</body>
 </html>
