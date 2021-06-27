@@ -137,6 +137,10 @@
       var audio = new Audio('index/hi.mp3');
       audio.loop=true;
       var playPromise = audio.play();
+      audiot.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
     }
 
   </script>
