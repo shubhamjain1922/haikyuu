@@ -135,6 +135,7 @@
     play();
     function play(){
       var audio = new Audio('index/hi.mp3');
+      audio.loop=true;
       var playPromise = audio.play();
     }
 
